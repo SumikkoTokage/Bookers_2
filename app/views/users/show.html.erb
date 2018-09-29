@@ -1,6 +1,5 @@
 
 <%= notice %>
-
 <div class="container">
     <div class="row">
     	<div class="col-xs-3">
@@ -26,19 +25,7 @@
 		    	<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 	    	<%end%>
 		    <% end %>
-			<h2>New book</h2>
-
-			<%= form_for(@book) do |f| %>
-
-				<h4>Title</h4>
-				<%= f.text_field :title, class: "book_title" %>
-
-				<h4>Opinion</h4>
-				<%= f.text_area :opinion, class: "book_body" %>
-
-				<%= f.submit 'Create Book' %>
-
-			<%end%>
+			<%= render 'Books/list', book:@new_book %>
         </div>
         <h1>Books</h1>
         <div class="col-xs-9">
@@ -55,7 +42,7 @@
 						<tr>
 							<td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></td>
 							<td>
-								<%= link_to book_path(book.id) do %>
+								<%= link_to book_path(book.id), class: "book_#{@new_book.id}" do %>
 									<%= book.title %>
 								<%end%>
 							</td>

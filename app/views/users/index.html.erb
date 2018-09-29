@@ -2,7 +2,7 @@
     <div class="row">
     	<div class="col-lg-4">
 			<h2>User info</h2>
-			<%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+			<%= attachment_image_tag @new_book.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
 
 			<table class="table">
 				<thead>
@@ -21,19 +21,7 @@
 	       	<%= link_to edit_user_path(current_user), class: "edit_user_#{@current_user} btn btn-default" do %>
 	       		<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 	       	<%end%>
-			<h2>New book</h2>
-
-			<%= form_for(@book) do |f| %>
-
-				<h4>Title</h4>
-				<%= f.text_field :title, class: "book_title" %>
-
-				<h4>Opinion</h4>
-				<%= f.text_area :opinion, class: "book_body" %>
-
-				<%= f.submit 'Create Book' %>
-
-			<%end%>
+			<%= render 'Books/list', book:@new_book %>
         </div>
         <h1>Users</h1>
         <div class="col-lg-8">
