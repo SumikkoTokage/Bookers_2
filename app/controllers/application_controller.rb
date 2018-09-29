@@ -12,4 +12,7 @@ class ApplicationController < ActionController::Base
     resource.update_without_password(params)
   end
 
+  def after_sign_in_path_for(resource)
+      user_path(current_user)
+  end
 end
