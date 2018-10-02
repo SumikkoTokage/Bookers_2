@@ -34662,3 +34662,1928 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 365ms (Views: 312.5ms | ActiveRecord: 7.5ms)
 
 
+Started GET "/" for 10.0.2.2 at 2018-09-30 02:26:21 +0000
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#top as HTML
+  Rendering books/top.html.erb within layouts/application
+  Rendered books/top.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 1694ms (Views: 1654.2ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/users" for 10.0.2.2 at 2018-09-30 02:26:26 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/index.html.erb within layouts/application
+  Rendered Books/_list.html.erb (15.6ms)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:37
+  Rendered users/index.html.erb within layouts/application (52.9ms)
+Completed 200 OK in 353ms (Views: 311.2ms | ActiveRecord: 6.7ms)
+
+
+Started POST "/books" for 10.0.2.2 at 2018-09-30 02:26:29 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RJyFGiP2FvL85Lot5JTsElwbZnbps948SW5TIPIIUdL1wqd6NbQhcWdo0nFpms3lFgU6YRm4iA/z8tNrBuEa4w==", "book"=>{"title"=>"", "opinion"=>""}, "commit"=>"Create Book"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  Rendering books/index.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.5ms)
+  [1m[36mBook Load (3.4ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:39
+  Rendered books/index.html.erb within layouts/application (37.4ms)
+Completed 200 OK in 352ms (Views: 304.5ms | ActiveRecord: 6.8ms)
+
+
+Started POST "/books" for 10.0.2.2 at 2018-09-30 02:26:35 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ERbxsTGiCWUe/j++6f1aL1YYTPmjvguKg4Y8FbUcHplwNQSCqQfxchVNE2fT4/gPIzGwbnGceG6lxkopUPYelQ==", "book"=>{"title"=>"タイトル表示", "opinion"=>"hhhhhh"}, "commit"=>"Create Book"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mBook Create (4.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "opinion", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "タイトル表示"], ["opinion", "hhhhhh"], ["user_id", 2], ["created_at", "2018-09-30 02:26:35.171816"], ["updated_at", "2018-09-30 02:26:35.171816"]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 12.2ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/books_controller.rb:16:in `create'
+Started POST "/books" for 10.0.2.2 at 2018-09-30 02:27:47 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ERbxsTGiCWUe/j++6f1aL1YYTPmjvguKg4Y8FbUcHplwNQSCqQfxchVNE2fT4/gPIzGwbnGceG6lxkopUPYelQ==", "book"=>{"title"=>"タイトル表示", "opinion"=>"hhhhhh"}, "commit"=>"Create Book"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mBook Create (4.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "opinion", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "タイトル表示"], ["opinion", "hhhhhh"], ["user_id", 2], ["created_at", "2018-09-30 02:27:47.496059"], ["updated_at", "2018-09-30 02:27:47.496059"]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (12.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 19.2ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/books_controller.rb:16:in `create'
+Started POST "/books" for 10.0.2.2 at 2018-09-30 02:28:06 +0000
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ERbxsTGiCWUe/j++6f1aL1YYTPmjvguKg4Y8FbUcHplwNQSCqQfxchVNE2fT4/gPIzGwbnGceG6lxkopUPYelQ==", "book"=>{"title"=>"タイトル表示", "opinion"=>"hhhhhh"}, "commit"=>"Create Book"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mBook Create (2.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "opinion", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "タイトル表示"], ["opinion", "hhhhhh"], ["user_id", 2], ["created_at", "2018-09-30 02:28:07.102975"], ["updated_at", "2018-09-30 02:28:07.102975"]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (7.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+Completed 500 Internal Server Error in 157ms (ActiveRecord: 20.6ms)
+
+
+  
+NoMethodError (undefined method `new_book_path' for #<BooksController:0x00007f31203b6d68>
+Did you mean?  edit_book_path):
+  
+app/controllers/books_controller.rb:16:in `create'
+Started POST "/books" for 10.0.2.2 at 2018-09-30 02:28:29 +0000
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ERbxsTGiCWUe/j++6f1aL1YYTPmjvguKg4Y8FbUcHplwNQSCqQfxchVNE2fT4/gPIzGwbnGceG6lxkopUPYelQ==", "book"=>{"title"=>"タイトル表示", "opinion"=>"hhhhhh"}, "commit"=>"Create Book"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mBook Create (2.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "opinion", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "タイトル表示"], ["opinion", "hhhhhh"], ["user_id", 2], ["created_at", "2018-09-30 02:28:29.401723"], ["updated_at", "2018-09-30 02:28:29.401723"]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (7.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+Redirected to http://localhost:3000/books/8
+Completed 302 Found in 81ms (ActiveRecord: 21.7ms)
+
+
+Started GET "/books/8" for 10.0.2.2 at 2018-09-30 02:28:29 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (6.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (736.8ms)
+Completed 200 OK in 1210ms (Views: 1179.8ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/books" for 10.0.2.2 at 2018-09-30 02:28:37 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kkNhZuAZ7KGAy1sQXHjFEuDVWEYzRpcbAKWGMiRcB2LzYJRVeLwUtot4d8lmZmcylfyk0eFk5P8m5fAOwbYHbg==", "book"=>{"title"=>"作成", "opinion"=>"lllll"}, "commit"=>"Create Book"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mBook Create (3.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "opinion", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "作成"], ["opinion", "lllll"], ["user_id", 2], ["created_at", "2018-09-30 02:28:37.416246"], ["updated_at", "2018-09-30 02:28:37.416246"]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (4.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+Redirected to http://localhost:3000/books/9
+Completed 302 Found in 21ms (ActiveRecord: 11.8ms)
+
+
+Started GET "/books/9" for 10.0.2.2 at 2018-09-30 02:28:37 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (0.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (32.3ms)
+Completed 200 OK in 358ms (Views: 329.0ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/books/9/edit" for 10.0.2.2 at 2018-09-30 02:28:43 +0000
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 312ms (Views: 279.0ms | ActiveRecord: 2.4ms)
+
+
+Started PATCH "/books/9" for 10.0.2.2 at 2018-09-30 02:28:44 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GbEmmVmsQi1eQV1zjbDYwW8VOHBmkJXbUS81QsI2kr2+Nh6YbqaN6V9iJjlFP/TAILOV95tpcSDJT73gXEmpHQ==", "book"=>{"title"=>"作成", "opinion"=>"lllll"}, "commit"=>"Update Book", "id"=>"9"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+Redirected to http://localhost:3000/books/9
+Completed 302 Found in 17ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/books/9" for 10.0.2.2 at 2018-09-30 02:28:44 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (1.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 323ms (Views: 291.3ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/books/9/edit" for 10.0.2.2 at 2018-09-30 02:28:46 +0000
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 246ms (Views: 226.5ms | ActiveRecord: 2.0ms)
+
+
+Started PATCH "/books/9" for 10.0.2.2 at 2018-09-30 02:28:49 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"caKP1bPuc/gfrPFgXjDaWx6xcJkPz4kmOakb3BCywInWJbfUhOS8PB6PiiqWv/ZaURfdHvI2bd2hyZN+js37KQ==", "book"=>{"title"=>"作成", "opinion"=>""}, "commit"=>"Update Book", "id"=>"9"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (15.5ms)
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 4.8ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Editing Book</h1>
+    2: 
+    3: 
+    4: <%= form_for(@book) do |f| %>
+    5: 
+    6: <% if @book.errors.any? %>
+    7:     <%= @book.errors.count %>件のエラーが発生しました
+  
+app/views/books/edit.html.erb:4:in `_app_views_books_edit_html_erb__3851487233833735730_70116931781020'
+app/controllers/books_controller.rb:47:in `update'
+Started PATCH "/books/9" for 10.0.2.2 at 2018-09-30 02:29:05 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"znDxp+nPrCLtXpv4dT/k0pOOtb3OCGXdZ2WX9bIH1zuvUwSUcWpUNebttyFPIUby5qdJKhwqFjlBJeHJV+3XNw==", "book"=>{"title"=>"", "opinion"=>"llll"}, "commit"=>"Update Book", "id"=>"9"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (2.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (19.3ms)
+Completed 500 Internal Server Error in 104ms (ActiveRecord: 6.2ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Editing Book</h1>
+    2: 
+    3: 
+    4: <%= form_for(@book) do |f| %>
+    5: 
+    6: <% if @book.errors.any? %>
+    7:     <%= @book.errors.count %>件のエラーが発生しました
+  
+app/views/books/edit.html.erb:4:in `_app_views_books_edit_html_erb__3851487233833735730_70116937142480'
+app/controllers/books_controller.rb:47:in `update'
+Started PATCH "/books/9" for 10.0.2.2 at 2018-09-30 02:30:08 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"znDxp+nPrCLtXpv4dT/k0pOOtb3OCGXdZ2WX9bIH1zuvUwSUcWpUNebttyFPIUby5qdJKhwqFjlBJeHJV+3XNw==", "book"=>{"title"=>"l", "opinion"=>"llll"}, "commit"=>"Update Book", "id"=>"9"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mBook Update (3.1ms)[0m  [1m[33mUPDATE "books" SET "title" = ?, "opinion" = ?, "updated_at" = ? WHERE "books"."id" = ?[0m  [["title", "l"], ["opinion", "llll"], ["updated_at", "2018-09-30 02:30:08.426678"], ["id", 9]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+Redirected to http://localhost:3000/books/9
+Completed 302 Found in 24ms (ActiveRecord: 9.6ms)
+
+
+Started GET "/books/9" for 10.0.2.2 at 2018-09-30 02:30:08 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (18.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (46.5ms)
+Completed 200 OK in 303ms (Views: 279.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users/2" for 10.0.2.2 at 2018-09-30 02:30:21 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.0ms)
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."user_id" = ? ORDER BY "books"."id" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/users/show.html.erb:41
+  Rendered users/show.html.erb within layouts/application (33.9ms)
+Completed 200 OK in 335ms (Views: 290.7ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/books" for 10.0.2.2 at 2018-09-30 02:30:30 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bUkMMPKaSq9kYYouO6mb1V/XScCb4Cv4eEox5rhwXf/cFy5Q5Nh9LP/t4nK2p7oiFckV12vrfcvC1rGtTJkWzg==", "book"=>{"title"=>"タイトル表示", "opinion"=>";;;"}, "commit"=>"Create Book"}
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.9ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mBook Create (6.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "opinion", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "タイトル表示"], ["opinion", ";;;"], ["user_id", 2], ["created_at", "2018-09-30 02:30:30.867254"], ["updated_at", "2018-09-30 02:30:30.867254"]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+Redirected to http://localhost:3000/books/10
+Completed 302 Found in 33ms (ActiveRecord: 16.9ms)
+
+
+Started GET "/books/10" for 10.0.2.2 at 2018-09-30 02:30:30 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (1.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (54.0ms)
+Completed 200 OK in 345ms (Views: 316.3ms | ActiveRecord: 4.8ms)
+
+
+Started DELETE "/books/10" for 10.0.2.2 at 2018-09-30 02:30:34 +0000
+Processing by BooksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"le7omAw2J0bwSOn3kTvHjt3Q+dDkmQCO8pYTr6JprBT0zR2rlJPfUfv7xS6rJWWuqPkFRza7c2rU1mWTR4OsGA==", "id"=>"10"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:51
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:52
+  [1m[36mBook Destroy (3.1ms)[0m  [1m[31mDELETE FROM "books" WHERE "books"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/books_controller.rb:52
+  [1m[35m (7.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:52
+Redirected to http://localhost:3000/books
+Completed 302 Found in 21ms (ActiveRecord: 12.7ms)
+
+
+Started GET "/books" for 10.0.2.2 at 2018-09-30 02:30:34 +0000
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:25
+  Rendering books/index.html.erb within layouts/application
+  Rendered Books/_list.html.erb (0.9ms)
+  [1m[36mBook Load (1.8ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:39
+  Rendered books/index.html.erb within layouts/application (41.5ms)
+Completed 200 OK in 347ms (Views: 317.1ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/books/8" for 10.0.2.2 at 2018-09-30 02:30:38 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (0.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (24.7ms)
+Completed 200 OK in 243ms (Views: 221.8ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/books/8/edit" for 10.0.2.2 at 2018-09-30 02:30:39 +0000
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 279ms (Views: 249.9ms | ActiveRecord: 3.4ms)
+
+
+Started PATCH "/books/8" for 10.0.2.2 at 2018-09-30 02:30:48 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Kw8jwaQOJSv5uzATuZSWSqo/210k5cz+dtzt+Vdsu6ZVfG8VA9GsRAixKhj9CMxEwqU1mJLvcBj4oBtEWwITFQ==", "book"=>{"title"=>"", "opinion"=>""}, "commit"=>"Update Book", "id"=>"8"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (36.3ms)
+Completed 500 Internal Server Error in 117ms (ActiveRecord: 4.7ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Editing Book</h1>
+    2: 
+    3: 
+    4: <%= form_for(@book) do |f| %>
+    5: 
+    6: <% if @book.errors.any? %>
+    7:     <%= @book.errors.count %>件のエラーが発生しました
+  
+app/views/books/edit.html.erb:4:in `_app_views_books_edit_html_erb__3851487233833735730_70116884912220'
+app/controllers/books_controller.rb:47:in `update'
+Started PATCH "/books/8" for 10.0.2.2 at 2018-09-30 02:35:03 +0000
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Kw8jwaQOJSv5uzATuZSWSqo/210k5cz+dtzt+Vdsu6ZVfG8VA9GsRAixKhj9CMxEwqU1mJLvcBj4oBtEWwITFQ==", "book"=>{"title"=>"", "opinion"=>""}, "commit"=>"Update Book", "id"=>"8"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (23.5ms)
+Completed 500 Internal Server Error in 186ms (ActiveRecord: 18.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Editing Book</h1>
+    2: 
+    3: 
+    4: <%= form_for(@new_book) do |f| %>
+    5: 
+    6: <% if @new_book.errors.any? %>
+    7:     <%= @new_book.errors.count %>件のエラーが発生しました
+  
+app/views/books/edit.html.erb:4:in `_app_views_books_edit_html_erb__1943334092524846951_47106563420100'
+app/controllers/books_controller.rb:47:in `update'
+Started PATCH "/books/8" for 10.0.2.2 at 2018-09-30 02:35:21 +0000
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Kw8jwaQOJSv5uzATuZSWSqo/210k5cz+dtzt+Vdsu6ZVfG8VA9GsRAixKhj9CMxEwqU1mJLvcBj4oBtEWwITFQ==", "book"=>{"title"=>"", "opinion"=>""}, "commit"=>"Update Book", "id"=>"8"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (16.9ms)
+Completed 500 Internal Server Error in 145ms (ActiveRecord: 14.1ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Editing Book</h1>
+    2: 
+    3: 
+    4: <%= form_for(@book) do |f| %>
+    5: 
+    6: <% if @book.errors.any? %>
+    7:     <%= @book.errors.count %>件のエラーが発生しました
+  
+app/views/books/edit.html.erb:4:in `_app_views_books_edit_html_erb__3965342651576664171_46920532309080'
+app/controllers/books_controller.rb:47:in `update'
+Started PATCH "/books/8" for 10.0.2.2 at 2018-09-30 02:35:47 +0000
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Kw8jwaQOJSv5uzATuZSWSqo/210k5cz+dtzt+Vdsu6ZVfG8VA9GsRAixKhj9CMxEwqU1mJLvcBj4oBtEWwITFQ==", "book"=>{"title"=>"", "opinion"=>""}, "commit"=>"Update Book", "id"=>"8"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (18.7ms)
+Completed 500 Internal Server Error in 155ms (ActiveRecord: 12.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <h1>Editing Book</h1>
+    2: <% if @book.errors.any? %>
+    3:     <%= @book.errors.count %>件のエラーが発生しました
+    4:     <% @book.errors.full_messages.each do |message| %>
+    5:         <%= message %>
+  
+app/views/books/edit.html.erb:2:in `_app_views_books_edit_html_erb___1643434380689864315_47242540329260'
+app/controllers/books_controller.rb:47:in `update'
+Started GET "/books/8" for 10.0.2.2 at 2018-09-30 02:37:37 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (7.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (831.1ms)
+Completed 200 OK in 1395ms (Views: 1360.9ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/users/2" for 10.0.2.2 at 2018-09-30 02:37:41 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.1ms)
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."user_id" = ? ORDER BY "books"."id" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/users/show.html.erb:41
+  Rendered users/show.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 269ms (Views: 236.7ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/users/2/edit" for 10.0.2.2 at 2018-09-30 02:37:42 +0000
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 280ms (Views: 250.5ms | ActiveRecord: 2.9ms)
+
+
+Started PATCH "/users/2" for 10.0.2.2 at 2018-09-30 02:37:47 +0000
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cFzbMTEdPJaoUrEiolE7Z8NDY/AYvhGMoFe4JeISLLjpnWb3kv9OlnIVhM9GU7s7SE5TYSJ5K5TPmzXoB3y4QA==", "user"=>{"name"=>"aa", "profile_image"=>"{}", "introduction"=>"llll"}, "commit"=>"Update User", "id"=>"2"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Update (5.7ms)[0m  [1m[33mUPDATE "users" SET "profile_image_id" = ?, "introduction" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["profile_image_id", nil], ["introduction", "llll"], ["updated_at", "2018-09-30 02:37:47.654311"], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 25ms (ActiveRecord: 12.1ms)
+
+
+Started GET "/users/2" for 10.0.2.2 at 2018-09-30 02:37:47 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.3ms)
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."user_id" = ? ORDER BY "books"."id" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/users/show.html.erb:41
+  Rendered users/show.html.erb within layouts/application (38.6ms)
+Completed 200 OK in 367ms (Views: 338.5ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/users/2/edit" for 10.0.2.2 at 2018-09-30 02:39:33 +0000
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (812.4ms)
+Completed 200 OK in 1375ms (Views: 1322.9ms | ActiveRecord: 6.4ms)
+
+
+Started PATCH "/users/2" for 10.0.2.2 at 2018-09-30 02:39:39 +0000
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"woOBxn5FujnlOb3QM4LVGhlLdkcxeG40DX9ijK7pXSRbQjwA3afIOT9+iD3XgFVGkkZG1gu/VCxis+9BS4fJ3A==", "user"=>{"name"=>"aa", "profile_image"=>"{}", "introduction"=>"lllllj"}, "commit"=>"Update User", "id"=>"2"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Update (6.1ms)[0m  [1m[33mUPDATE "users" SET "profile_image_id" = ?, "introduction" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["profile_image_id", nil], ["introduction", "lllllj"], ["updated_at", "2018-09-30 02:39:39.087553"], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 22ms (ActiveRecord: 11.7ms)
+
+
+Started GET "/users/2" for 10.0.2.2 at 2018-09-30 02:39:39 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.7ms)
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."user_id" = ? ORDER BY "books"."id" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/users/show.html.erb:41
+  Rendered users/show.html.erb within layouts/application (62.4ms)
+Completed 200 OK in 383ms (Views: 324.5ms | ActiveRecord: 10.0ms)
+
+
+Started POST "/books" for 10.0.2.2 at 2018-09-30 02:39:47 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DwWNF7oWge8YurgQtKZkKmTW5gfePZKykgtz1Ajpf51uJngkIrN5+BMJlMmOuMYKEf8akAwf4Va0SwXo7QN/kQ==", "book"=>{"title"=>"作成", "opinion"=>"hhhh"}, "commit"=>"Create Book"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mBook Create (3.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "opinion", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "作成"], ["opinion", "hhhh"], ["user_id", 2], ["created_at", "2018-09-30 02:39:47.064227"], ["updated_at", "2018-09-30 02:39:47.064227"]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (9.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+Redirected to http://localhost:3000/books/11
+Completed 302 Found in 35ms (ActiveRecord: 15.8ms)
+
+
+Started GET "/books/11" for 10.0.2.2 at 2018-09-30 02:39:47 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (1.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (29.3ms)
+Completed 200 OK in 308ms (Views: 280.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/books/11/edit" for 10.0.2.2 at 2018-09-30 02:39:48 +0000
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 240ms (Views: 212.0ms | ActiveRecord: 2.7ms)
+
+
+Started PATCH "/books/11" for 10.0.2.2 at 2018-09-30 02:39:50 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GmHwN1dT3lMoOXaslmSDwUYQ84Ytv0EOsiwYHR0F8TmrFwAibv5VQL+4ZWAbSv0n+52kOcshOaL1zyCAR4SlzQ==", "book"=>{"title"=>"作成", "opinion"=>"hhhh"}, "commit"=>"Update Book", "id"=>"11"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+Redirected to http://localhost:3000/books/11
+Completed 302 Found in 20ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/books/11" for 10.0.2.2 at 2018-09-30 02:39:50 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (2.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (39.1ms)
+Completed 200 OK in 339ms (Views: 300.2ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/books/11/edit" for 10.0.2.2 at 2018-09-30 02:39:52 +0000
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 298ms (Views: 274.1ms | ActiveRecord: 2.7ms)
+
+
+Started PATCH "/books/11" for 10.0.2.2 at 2018-09-30 02:39:55 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nPy9XNFccwHbnZwpTxkXgxl1QOTXM3zkyhOTn+bRhtAtik1J6PH4Ekwcj+XCN2llpPgXWzGtBEiN8KsCvFDSJA==", "book"=>{"title"=>"作成", "opinion"=>""}, "commit"=>"Update Book", "id"=>"11"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (17.0ms)
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 4.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <h1>Editing Book</h1>
+    2: <% if @book.errors.any? %>
+    3:     <%= @book.errors.count %>件のエラーが発生しました
+    4:     <% @book.errors.full_messages.each do |message| %>
+    5:         <%= message %>
+  
+app/views/books/edit.html.erb:2:in `_app_views_books_edit_html_erb__1593814109925764919_69882754924020'
+app/controllers/books_controller.rb:47:in `update'
+Started PATCH "/books/11" for 10.0.2.2 at 2018-09-30 02:43:38 +0000
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nPy9XNFccwHbnZwpTxkXgxl1QOTXM3zkyhOTn+bRhtAtik1J6PH4Ekwcj+XCN2llpPgXWzGtBEiN8KsCvFDSJA==", "book"=>{"title"=>"作成", "opinion"=>""}, "commit"=>"Update Book", "id"=>"11"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (250.6ms)
+Completed 500 Internal Server Error in 400ms (ActiveRecord: 18.7ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `book' for #<#<Class:0x000056087256f1f0>:0x00007faaa063f2e8>):
+    1: <h1>Editing Book</h1>
+    2: <% if book.errors.any? %>
+    3:     <%= book.errors.count %>件のエラーが発生しました
+    4:     <% book.errors.full_messages.each do |message| %>
+    5:         <%= message %>
+  
+app/views/books/edit.html.erb:2:in `_app_views_books_edit_html_erb__1609471678326628156_47297138987260'
+app/controllers/books_controller.rb:47:in `update'
+Started PATCH "/books/11" for 10.0.2.2 at 2018-09-30 02:43:53 +0000
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nPy9XNFccwHbnZwpTxkXgxl1QOTXM3zkyhOTn+bRhtAtik1J6PH4Ekwcj+XCN2llpPgXWzGtBEiN8KsCvFDSJA==", "book"=>{"title"=>"作成", "opinion"=>""}, "commit"=>"Update Book", "id"=>"11"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (22.8ms)
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 13.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <h1>Editing Book</h1>
+    2: <% if @book.errors.any? %>
+    3:     <%= @book.errors.count %>件のエラーが発生しました
+    4:     <% @book.errors.full_messages.each do |message| %>
+    5:         <%= message %>
+  
+app/views/books/edit.html.erb:2:in `_app_views_books_edit_html_erb__441614111003646851_70015150853860'
+app/controllers/books_controller.rb:47:in `update'
+Started PATCH "/books/11" for 10.0.2.2 at 2018-09-30 02:44:16 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"75O5Io7un3khtYMLzfec58Rh+qOz8061jWhYPEHyjAOOsEwRFktnbioGr9L36T7HsUgGNGHRPVGrKC4ApBiMDw==", "book"=>{"title"=>"作成", "opinion"=>""}, "commit"=>"Update Book", "id"=>"11"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (20.0ms)
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 4.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <h1>Editing Book</h1>
+    2: <% if @book.errors.any? %>
+    3:     <%= @book.errors.count %>件のエラーが発生しました
+    4:     <% @book.errors.full_messages.each do |message| %>
+    5:         <%= message %>
+  
+app/views/books/edit.html.erb:2:in `_app_views_books_edit_html_erb__441614111003646851_70015153110460'
+app/controllers/books_controller.rb:47:in `update'
+Started GET "/users" for 10.0.2.2 at 2018-09-30 02:44:55 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/index.html.erb within layouts/application
+  Rendered Books/_list.html.erb (8.4ms)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:37
+  Rendered users/index.html.erb within layouts/application (693.2ms)
+Completed 200 OK in 1130ms (Views: 1112.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/2/edit" for 10.0.2.2 at 2018-09-30 02:44:57 +0000
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 328ms (Views: 287.4ms | ActiveRecord: 2.9ms)
+
+
+Started PATCH "/users/2" for 10.0.2.2 at 2018-09-30 02:45:01 +0000
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RyEq2WnPPd9yVbeaZW08pR3MrDQ9Gy2551m1X3leLk3e4Jcfyi1P36gSgneBb7z5lsGcpQfcF6GIlTiSnDC6tQ==", "user"=>{"name"=>"", "profile_image"=>"{}", "introduction"=>"lllllj"}, "commit"=>"Update User", "id"=>"2"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:17
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 353ms (Views: 338.7ms | ActiveRecord: 2.6ms)
+
+
+Started PATCH "/users/2" for 10.0.2.2 at 2018-09-30 02:45:08 +0000
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"b79NOkwKl9AAiYibdHHJbU9jXzMOD9bP8v7UBELsROUOnLgJ1K9vxws6pEJOb2tNOkqjpNwtpSvUvqI4pwZE6Q==", "user"=>{"name"=>"aa", "profile_image"=>"{}", "introduction"=>"lllllj"}, "commit"=>"Update User", "id"=>"2"}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Update (4.5ms)[0m  [1m[33mUPDATE "users" SET "profile_image_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["profile_image_id", nil], ["updated_at", "2018-09-30 02:45:08.484596"], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 33ms (ActiveRecord: 14.2ms)
+
+
+Started GET "/users/2" for 10.0.2.2 at 2018-09-30 02:45:08 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.1ms)
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."user_id" = ? ORDER BY "books"."id" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/users/show.html.erb:41
+  Rendered users/show.html.erb within layouts/application (31.5ms)
+Completed 200 OK in 286ms (Views: 256.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/books/11" for 10.0.2.2 at 2018-09-30 02:45:12 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (1.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 242ms (Views: 214.7ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/books/11/edit" for 10.0.2.2 at 2018-09-30 02:45:14 +0000
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 291ms (Views: 262.4ms | ActiveRecord: 3.3ms)
+
+
+Started PATCH "/books/11" for 10.0.2.2 at 2018-09-30 02:47:32 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"e/js0H3Cm8UcZpJS/JXNYoXqgoDbro5X3NHcAgm5Pz/KjhzFRG8Q1ovngZ5xu7OEOGfVPz0w9vubMuSfUzhryw==", "book"=>{"title"=>"", "opinion"=>"hhhh"}, "commit"=>"Update Book", "id"=>"11"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (20.2ms)
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 3.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <h1>Editing Book</h1>
+    2: <% if @book.errors.any? %>
+    3:     <%= @book.errors.count %>件のエラーが発生しました
+    4:     <% @book.errors.full_messages.each do |message| %>
+    5:         <%= message %>
+  
+app/views/books/edit.html.erb:2:in `_app_views_books_edit_html_erb__441614111003646851_70015147758420'
+app/controllers/books_controller.rb:47:in `update'
+Started PATCH "/books/11" for 10.0.2.2 at 2018-09-30 02:51:00 +0000
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"e/js0H3Cm8UcZpJS/JXNYoXqgoDbro5X3NHcAgm5Pz/KjhzFRG8Q1ovngZ5xu7OEOGfVPz0w9vubMuSfUzhryw==", "book"=>{"title"=>"", "opinion"=>"hhhh"}, "commit"=>"Update Book", "id"=>"11"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (17.5ms)
+Completed 500 Internal Server Error in 145ms (ActiveRecord: 13.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <h1>Editing Book</h1>
+    2: 
+    3: <% if @book.errors.any? %>
+    4:     <%= @book.errors.count %>件のエラーが発生しました
+    5:     <% @book.errors.full_messages.each do |message| %>
+    6:         <%= message %>
+  
+app/views/books/edit.html.erb:3:in `_app_views_books_edit_html_erb___3277540306856404710_47125345858900'
+app/controllers/books_controller.rb:47:in `update'
+Started PATCH "/books/11" for 10.0.2.2 at 2018-09-30 02:52:15 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xfjLGfhPBCMDH0JnOGi5QjtHotYWWZHC9d6lW93B+USk2z4qYOr8NAisbr4CdhtiTm5eQcR74ibTntNnOCv5SA==", "book"=>{"title"=>"", "opinion"=>""}, "commit"=>"Update Book", "id"=>"11"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (14.2ms)
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 4.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <h1>Editing Book</h1>
+    2: 
+    3: <% if @book.errors.any? %>
+    4:     <%= @book.errors.count %>件のエラーが発生しました
+    5:     <% @book.errors.full_messages.each do |message| %>
+    6:         <%= message %>
+  
+app/views/books/edit.html.erb:3:in `_app_views_books_edit_html_erb___3277540306856404710_70059545548280'
+app/controllers/books_controller.rb:47:in `update'
+Started GET "/books/11" for 10.0.2.2 at 2018-09-30 02:52:19 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (8.4ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (919.7ms)
+Completed 200 OK in 1398ms (Views: 1372.9ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/books" for 10.0.2.2 at 2018-09-30 02:52:22 +0000
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:25
+  Rendering books/index.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.0ms)
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:39
+  Rendered books/index.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 252ms (Views: 224.2ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/books/1" for 10.0.2.2 at 2018-09-30 02:52:24 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (0.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 258ms (Views: 231.0ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/books/1/edit" for 10.0.2.2 at 2018-09-30 02:52:26 +0000
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 238ms (Views: 208.0ms | ActiveRecord: 2.7ms)
+
+
+Started PATCH "/books/1" for 10.0.2.2 at 2018-09-30 02:52:30 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+SJS+dBpXqhVeWSz1psfbBjvhQyv4twuZHuP1KGcnKwujppuaA8vu7Ot5cI5f98EP6/A4Ccqc5PO9aMoN52PgA==", "book"=>{"title"=>"", "opinion"=>"aaaaaaaa"}, "commit"=>"Update Book", "id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (14.2ms)
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 3.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <h1>Editing Book</h1>
+    2: 
+    3: <% if @book.errors.any? %>
+    4:     <%= @book.errors.count %>件のエラーが発生しました
+    5:     <% @book.errors.full_messages.each do |message| %>
+    6:         <%= message %>
+  
+app/views/books/edit.html.erb:3:in `_app_views_books_edit_html_erb___3277540306856404710_70059656075000'
+app/controllers/books_controller.rb:47:in `update'
+Started PATCH "/books/1" for 10.0.2.2 at 2018-09-30 02:53:39 +0000
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+SJS+dBpXqhVeWSz1psfbBjvhQyv4twuZHuP1KGcnKwujppuaA8vu7Ot5cI5f98EP6/A4Ccqc5PO9aMoN52PgA==", "book"=>{"title"=>"", "opinion"=>"aaaaaaaa"}, "commit"=>"Update Book", "id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (15.9ms)
+Completed 500 Internal Server Error in 146ms (ActiveRecord: 14.1ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Editing Book</h1>
+    2: 
+    3: <%= form_for(@book) do |f| %>
+    4: 
+    5: <div class="field">
+    6: 	<label>Title</label>
+  
+app/views/books/edit.html.erb:3:in `_app_views_books_edit_html_erb___315734377886491746_47193000885280'
+app/controllers/books_controller.rb:47:in `update'
+Started PATCH "/books/1" for 10.0.2.2 at 2018-09-30 02:53:46 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4+kVlYITl4EXHrjnTIv2MNOgswX9taVwo0WOjEEJNrqCyuCmGrZvlhytlD52lVQQpolPki+X1pSFBfiwpOM2tg==", "book"=>{"title"=>"", "opinion"=>"aaaaaaaa"}, "commit"=>"Update Book", "id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (18.9ms)
+Completed 500 Internal Server Error in 90ms (ActiveRecord: 3.5ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Editing Book</h1>
+    2: 
+    3: <%= form_for(@book) do |f| %>
+    4: 
+    5: <div class="field">
+    6: 	<label>Title</label>
+  
+app/views/books/edit.html.erb:3:in `_app_views_books_edit_html_erb___315734377886491746_70186246963300'
+app/controllers/books_controller.rb:47:in `update'
+Started PATCH "/books/1" for 10.0.2.2 at 2018-09-30 02:54:04 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4+kVlYITl4EXHrjnTIv2MNOgswX9taVwo0WOjEEJNrqCyuCmGrZvlhytlD52lVQQpolPki+X1pSFBfiwpOM2tg==", "book"=>{"title"=>"", "opinion"=>"aaaaaaaa"}, "commit"=>"Update Book", "id"=>"1"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (15.6ms)
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 4.2ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Editing Book</h1>
+    2: 
+    3: <%= form_for(@book) do |f| %>
+    4: 
+    5: 
+    6: <% if @book.errors.any? %>
+  
+app/views/books/edit.html.erb:3:in `_app_views_books_edit_html_erb___315734377886491746_47192991286580'
+app/controllers/books_controller.rb:47:in `update'
+Started PATCH "/books/1" for 10.0.2.2 at 2018-09-30 02:54:25 +0000
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4+kVlYITl4EXHrjnTIv2MNOgswX9taVwo0WOjEEJNrqCyuCmGrZvlhytlD52lVQQpolPki+X1pSFBfiwpOM2tg==", "book"=>{"title"=>"", "opinion"=>"aaaaaaaa"}, "commit"=>"Update Book", "id"=>"1"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (20.9ms)
+Completed 500 Internal Server Error in 171ms (ActiveRecord: 15.5ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Editing Book</h1>
+    2: 
+    3: <%= form_for(@book) do |f| %>
+    4: 
+    5: 
+    6: <% if @book.errors.any? %>
+  
+app/views/books/edit.html.erb:3:in `_app_views_books_edit_html_erb___990439421577274510_69868652213080'
+app/controllers/books_controller.rb:47:in `update'
+Started GET "/" for 10.0.2.2 at 2018-09-30 08:40:49 +0000
+Processing by BooksController#top as HTML
+  Rendering books/top.html.erb within layouts/application
+  Rendered books/top.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2019ms (Views: 1981.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-09-30 08:40:51 +0000
+Processing by BooksController#top as HTML
+  Rendering books/top.html.erb within layouts/application
+  Rendered books/top.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 377ms (Views: 353.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 192.168.33.1 at 2018-09-30 08:40:56 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 10.0.2.2, 127.0.0.0/127.255.255.255, ::1
+Processing by BooksController#top as HTML
+  Rendering books/top.html.erb within layouts/application
+  Rendered books/top.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 370ms (Views: 346.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 192.168.33.1 at 2018-09-30 08:40:57 +0000
+Cannot render console from 192.168.33.1! Allowed networks: 10.0.2.2, 127.0.0.0/127.255.255.255, ::1
+Processing by BooksController#top as HTML
+  Rendering books/top.html.erb within layouts/application
+  Rendered books/top.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 412ms (Views: 385.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-10-02 07:27:48 +0000
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#top as HTML
+  Rendering books/top.html.erb within layouts/application
+  Rendered books/top.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 1634ms (Views: 1586.2ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/users" for 10.0.2.2 at 2018-10-02 07:27:52 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/index.html.erb within layouts/application
+  Rendered Books/_list.html.erb (14.3ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:37
+  Rendered users/index.html.erb within layouts/application (68.3ms)
+Completed 200 OK in 454ms (Views: 394.9ms | ActiveRecord: 9.7ms)
+
+
+Started POST "/books" for 10.0.2.2 at 2018-10-02 07:27:55 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vy9xRKW5yCzOCN5uTW+t4amqpDP3Ov58Oa0sxggUCNHmcVMks/v/r1WEtjLAYYwW47T4JAcxqE+DMayN/P1D4A==", "book"=>{"title"=>"", "opinion"=>""}, "commit"=>"Create Book"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  Rendering books/index.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.6ms)
+  [1m[36mBook Load (1.9ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:39
+  Rendered books/index.html.erb within layouts/application (57.9ms)
+Completed 200 OK in 500ms (Views: 449.7ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/books/1" for 10.0.2.2 at 2018-10-02 07:27:59 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (1.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 396ms (Views: 348.2ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/books/1/edit" for 10.0.2.2 at 2018-10-02 07:28:01 +0000
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (2.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 429ms (Views: 378.2ms | ActiveRecord: 5.9ms)
+
+
+Started PATCH "/books/1" for 10.0.2.2 at 2018-10-02 07:28:02 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Nu1IBW5rdd2wfM6u5FAVnkFiXHllZahXDJ3qzXNT+nXhQYCS1g0EzlaoT98LtNX2ZiIZle2tB+qmE8Yx5VLpWQ==", "book"=>{"title"=>"タイトル表示", "opinion"=>"aaaaaaaa"}, "commit"=>"Update Book", "id"=>"1"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (2.6ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+Redirected to http://localhost:3000/books/1
+Completed 302 Found in 21ms (ActiveRecord: 7.3ms)
+
+
+Started GET "/books/1" for 10.0.2.2 at 2018-10-02 07:28:03 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (1.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (38.7ms)
+Completed 200 OK in 376ms (Views: 340.9ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/books/1/edit" for 10.0.2.2 at 2018-10-02 07:28:08 +0000
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 371ms (Views: 336.2ms | ActiveRecord: 3.4ms)
+
+
+Started PATCH "/books/1" for 10.0.2.2 at 2018-10-02 07:28:11 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+4QWjL1Z3HrC2uoaWcNDNf3RY8sgBQuVRcvKsxZYVOssKN4bBT+taSQOa2u2J4Nd2pEmJ6jNpCjvReZPgFlHxw==", "book"=>{"title"=>"タイトル表示", "opinion"=>""}, "commit"=>"Update Book", "id"=>"1"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (26.1ms)
+Completed 500 Internal Server Error in 129ms (ActiveRecord: 6.8ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Editing Book</h1>
+    2: 
+    3: <%= form_for(@book) do |f| %>
+    4: 
+    5: 
+    6: <% if @book.errors.any? %>
+  
+app/views/books/edit.html.erb:3:in `_app_views_books_edit_html_erb___3147282699935783214_70266438309480'
+app/controllers/books_controller.rb:47:in `update'
+Started PATCH "/books/1" for 10.0.2.2 at 2018-10-02 07:30:14 +0000
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+4QWjL1Z3HrC2uoaWcNDNf3RY8sgBQuVRcvKsxZYVOssKN4bBT+taSQOa2u2J4Nd2pEmJ6jNpCjvReZPgFlHxw==", "book"=>{"title"=>"タイトル表示", "opinion"=>""}, "commit"=>"Update Book", "id"=>"1"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 1733ms (Views: 1628.5ms | ActiveRecord: 17.8ms)
+
+
+Started GET "/books/1" for 10.0.2.2 at 2018-10-02 07:30:20 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (1.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (49.3ms)
+Completed 200 OK in 457ms (Views: 414.7ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/books/1/edit" for 10.0.2.2 at 2018-10-02 07:30:23 +0000
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (2.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 473ms (Views: 424.4ms | ActiveRecord: 5.5ms)
+
+
+Started PATCH "/books/1" for 10.0.2.2 at 2018-10-02 07:30:24 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/wTzyvAgH9TyINtvaUsErKYA/cAlDqH63ov5wS7kHRYoqDtdSEZuxxT0Wh6Gr8TEgUC4LK3GDkd0BdU9uOUOOg==", "book"=>{"title"=>"タイトル表示", "opinion"=>"aaaaaaaa"}, "commit"=>"Update Book", "id"=>"1"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+Redirected to http://localhost:3000/books/1
+Completed 302 Found in 16ms (ActiveRecord: 6.9ms)
+
+
+Started GET "/books/1" for 10.0.2.2 at 2018-10-02 07:30:24 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (1.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (39.9ms)
+Completed 200 OK in 406ms (Views: 370.0ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/books/1/edit" for 10.0.2.2 at 2018-10-02 07:30:26 +0000
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 350ms (Views: 321.1ms | ActiveRecord: 3.5ms)
+
+
+Started PATCH "/books/1" for 10.0.2.2 at 2018-10-02 07:30:30 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5nLvJ6m4UqysU3Ref+KVElBi7a4NP0JtMCj2pxE25JMx3iewEd4jv0qH9S+QBlV6dyKoQoX37dCaptpbhzf3vw==", "book"=>{"title"=>"", "opinion"=>"aaaaaaaa"}, "commit"=>"Update Book", "id"=>"1"}
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (3.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 436ms (Views: 409.8ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/books" for 10.0.2.2 at 2018-10-02 07:30:34 +0000
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:25
+  Rendering books/index.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.0ms)
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:39
+  Rendered books/index.html.erb within layouts/application (58.1ms)
+Completed 200 OK in 478ms (Views: 433.2ms | ActiveRecord: 5.9ms)
+
+
+Started POST "/books" for 10.0.2.2 at 2018-10-02 07:30:36 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6Cfi6QQK0pBrkThtmKtfNsWNW9O8+FX4QWtNbIX1yXlZecCJEkjlE/AdUDEVpX7Bj5MHxEzzA8v7980ncRyCSA==", "book"=>{"title"=>"", "opinion"=>""}, "commit"=>"Create Book"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  Rendering books/index.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.5ms)
+  [1m[36mBook Load (2.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:39
+  Rendered books/index.html.erb within layouts/application (55.7ms)
+Completed 200 OK in 479ms (Views: 455.8ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/users/2/edit" for 10.0.2.2 at 2018-10-02 07:30:39 +0000
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 511ms (Views: 471.2ms | ActiveRecord: 4.2ms)
+
+
+Started PATCH "/users/2" for 10.0.2.2 at 2018-10-02 07:30:44 +0000
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0BCzppshBxM9WWJvaoxiCfHAIWs7G1G2bo7rF8lfXwZJ0Q5gOMN1E+ceV4KOjuJVes0R+gHca64BQmbaLDHL/g==", "user"=>{"name"=>"", "profile_image"=>"{}", "introduction"=>"lllllj"}, "commit"=>"Update User", "id"=>"2"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:17
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 471ms (Views: 451.0ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users" for 10.0.2.2 at 2018-10-02 07:30:50 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/index.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.0ms)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:37
+  Rendered users/index.html.erb within layouts/application (80.1ms)
+Completed 200 OK in 538ms (Views: 491.8ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/users/2" for 10.0.2.2 at 2018-10-02 07:30:51 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.0ms)
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."user_id" = ? ORDER BY "books"."id" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/users/show.html.erb:41
+  Rendered users/show.html.erb within layouts/application (56.2ms)
+Completed 200 OK in 529ms (Views: 461.0ms | ActiveRecord: 10.0ms)
+
+
+Started POST "/books" for 10.0.2.2 at 2018-10-02 07:31:11 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/acqw/qq3LaoLkXKw8Ku6gMCjwv+uuYvaFeXlxdMpRVM+Qij7OjrNTOiLZZOzI8dSRzTHA6xsBzSyxfc46XuJA==", "book"=>{"title"=>"", "opinion"=>""}, "commit"=>"Create Book"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  Rendering books/index.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.3ms)
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:39
+  Rendered books/index.html.erb within layouts/application (48.3ms)
+Completed 200 OK in 399ms (Views: 378.5ms | ActiveRecord: 6.8ms)
+
+
+Started POST "/books" for 10.0.2.2 at 2018-10-02 07:31:16 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MOmxJYMw/286VOnBACfVSx895paE92ZymDV9KiJWKHZRykQWG5UHeDHnxRg6OXdrahQaAVbVFZa+dQsWx7woeg==", "book"=>{"title"=>"タイトル表示", "opinion"=>"ssssss"}, "commit"=>"Create Book"}
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mBook Create (5.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "opinion", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "タイトル表示"], ["opinion", "ssssss"], ["user_id", 2], ["created_at", "2018-10-02 07:31:16.450966"], ["updated_at", "2018-10-02 07:31:16.450966"]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (8.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+Redirected to http://localhost:3000/books/12
+Completed 302 Found in 41ms (ActiveRecord: 21.5ms)
+
+
+Started GET "/books/12" for 10.0.2.2 at 2018-10-02 07:31:16 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (0.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (51.2ms)
+Completed 200 OK in 538ms (Views: 472.1ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/books/12/edit" for 10.0.2.2 at 2018-10-02 07:31:19 +0000
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 401ms (Views: 360.5ms | ActiveRecord: 4.1ms)
+
+
+Started PATCH "/books/12" for 10.0.2.2 at 2018-10-02 07:31:24 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aaZby4p4VWnoNNjgR30R10ChXwsoZxkXeNs3KgExJwK1cqnaOGlTeDOkArT+5DMH+wTLJMbczhE9POf4LnHZzA==", "book"=>{"title"=>"タイトル表示", "opinion"=>""}, "commit"=>"Update Book", "id"=>"12"}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (2.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 349ms (Views: 331.8ms | ActiveRecord: 7.2ms)
+
+
+Started PATCH "/books/12" for 10.0.2.2 at 2018-10-02 07:31:27 +0000
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/SY7wh/aJGVSt4beFI8qE5tBqYBcC12pP9+VmP3/aJScBc7xh3/cclkEqgcukYgz7mhVF44pLk0Zn+OkGBVomA==", "book"=>{"title"=>"タイトル表示", "opinion"=>"aaaaa"}, "commit"=>"Update Book", "id"=>"12"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.8ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mBook Update (2.9ms)[0m  [1m[33mUPDATE "books" SET "opinion" = ?, "updated_at" = ? WHERE "books"."id" = ?[0m  [["opinion", "aaaaa"], ["updated_at", "2018-10-02 07:31:27.881340"], ["id", 12]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (8.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+Redirected to http://localhost:3000/books/12
+Completed 302 Found in 27ms (ActiveRecord: 16.7ms)
+
+
+Started GET "/books/12" for 10.0.2.2 at 2018-10-02 07:31:27 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (1.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (43.6ms)
+Completed 200 OK in 399ms (Views: 364.4ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/users/2" for 10.0.2.2 at 2018-10-02 07:31:31 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.1ms)
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."user_id" = ? ORDER BY "books"."id" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/users/show.html.erb:41
+  Rendered users/show.html.erb within layouts/application (51.4ms)
+Completed 200 OK in 436ms (Views: 398.9ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/users/2/edit" for 10.0.2.2 at 2018-10-02 07:31:33 +0000
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 428ms (Views: 385.0ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/books/12" for 10.0.2.2 at 2018-10-02 07:31:37 +0000
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (1.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:31
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_list.html.erb (1.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:45
+  Rendered books/show.html.erb within layouts/application (112.4ms)
+Completed 200 OK in 545ms (Views: 496.4ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/users" for 10.0.2.2 at 2018-10-02 07:31:41 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/index.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.1ms)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:37
+  Rendered users/index.html.erb within layouts/application (40.6ms)
+Completed 200 OK in 390ms (Views: 355.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users/1" for 10.0.2.2 at 2018-10-02 07:31:43 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  Rendered Books/_list.html.erb (0.9ms)
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."user_id" = ? ORDER BY "books"."id" DESC LIMIT ? OFFSET ?[0m  [["user_id", 1], ["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/users/show.html.erb:41
+  Rendered users/show.html.erb within layouts/application (40.7ms)
+Completed 200 OK in 392ms (Views: 355.6ms | ActiveRecord: 5.9ms)
+
+
+Started POST "/books" for 10.0.2.2 at 2018-10-02 07:31:47 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fMm3ZAkDlUx76r+PJPK6TjBwiM/vJKdtLJ7n7o8RHaPNl5UEH0Giz+Bm19Op/Ju5em7U2B8v8V6WAmele/hWkg==", "book"=>{"title"=>"", "opinion"=>""}, "commit"=>"Create Book"}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  Rendering books/index.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.3ms)
+  [1m[36mBook Load (1.8ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:39
+  Rendered books/index.html.erb within layouts/application (55.9ms)
+Completed 200 OK in 443ms (Views: 427.4ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/users/2" for 10.0.2.2 at 2018-10-02 07:31:51 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.2ms)
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."user_id" = ? ORDER BY "books"."id" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/users/show.html.erb:41
+  Rendered users/show.html.erb within layouts/application (51.1ms)
+Completed 200 OK in 447ms (Views: 403.9ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/books" for 10.0.2.2 at 2018-10-02 07:31:53 +0000
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:25
+  Rendering books/index.html.erb within layouts/application
+  Rendered Books/_list.html.erb (1.4ms)
+  [1m[36mBook Load (2.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:39
+  Rendered books/index.html.erb within layouts/application (57.0ms)
+Completed 200 OK in 501ms (Views: 447.1ms | ActiveRecord: 6.5ms)
+
+
+Started DELETE "/users/sign_out" for 10.0.2.2 at 2018-10-02 07:31:54 +0000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"XVN8n2d3VTlLjc4gnvqlLDUsA5U5sZWt4JS1WlKJbEc8cIms/9KtLkA+4vmk5AcMQAX/AuuT5knG1MNmt2NsSw=="}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 17ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-10-02 07:31:54 +0000
+Processing by BooksController#top as HTML
+  Rendering books/top.html.erb within layouts/application
+  Rendered books/top.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 356ms (Views: 328.6ms | ActiveRecord: 0.0ms)
+
+
