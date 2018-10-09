@@ -42,7 +42,7 @@
 						<tr>
 							<td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></td>
 							<td>
-								<%= link_to book_path(book.id), class: "book_#{@new_book.id}" do %>
+								<%= link_to book_path(book.id), class: "book_#{book.id}" do %>
 									<%= book.title %>
 								<%end%>
 							</td>
